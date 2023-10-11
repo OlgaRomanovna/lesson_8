@@ -1,0 +1,12 @@
+.idea
+/.pytest_cache
+__pycache__/
+__pycache__
+/env
+/venv
+/homework/.pytest_cache
+test_users_functions.py
+test_users_objects.py
+test_users_simple.py
+users.csv
+models
