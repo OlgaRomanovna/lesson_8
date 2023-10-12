@@ -83,6 +83,12 @@ class TestCart:
 
     def test_buy_product_in_cart_ValueError(self, product, cart):
         # Проверка на покупку большего quantity продуктов в корзине, вызывая VallueError
-        cart.add_product(product, buy_count=5)
+        cart.add_product(product, buy_count=7)
         with pytest.raises(ValueError):
-            cart.buy(quantity=6)
+            cart.buy(quantity=9)
+
+    def test_get_total_price(self, product, cart):
+        # Проверка на получение фулл стоимости корзины
+        cart.add_product(product, buy_count=15)
+        assert cart.products.get(product) == 15
+        assert cart.get_total_price() == 1500
