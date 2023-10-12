@@ -91,3 +91,4 @@ class Cart:
                     raise ValueError
             else:
                 raise ValueError
+        self.products.clear()

@@ -102,5 +102,10 @@ class TestCart:
         # Проверка на получение фулл стоимости корзины с двумя разными товарами
         cart.add_product(product, 6)
         cart.add_product(other_product, 12)
-
         assert cart.get_total_price() == 1200
+
+    def test_cart_buy_more_than_available(self, cart, product):
+        # Проверка на удаление большего количетсва товаров, чем лежит в корзине
+        cart.add_product(product, 10)
+        cart.remove_product(product, 11)
+        assert cart.products == {}
