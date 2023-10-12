@@ -99,6 +99,7 @@ class TestCart:
         assert cart.get_total_price() == 1500
 
     def test_cart_get_total_price_with_two_products(self, cart, product, other_product):
+        # Проверка на получение фулл стоимости корзины с двумя разными товарами
         cart.add_product(product, 6)
         cart.add_product(other_product, 12)
 
