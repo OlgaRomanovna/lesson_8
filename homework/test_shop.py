@@ -11,6 +11,11 @@ def product():
     return Product("book", 100, "This is a book", 1000)
 
 
+@pytest.fixture
+def other_product():
+    return Product("pen", 50, "This is a pen", 300)
+
+
 @pytest.fixture()
 def cart():
     return Cart()
@@ -92,3 +97,9 @@ class TestCart:
         cart.add_product(product, buy_count=15)
         assert cart.products.get(product) == 15
         assert cart.get_total_price() == 1500
+
+    def test_cart_get_total_price_with_two_products(self, cart, product, other_product):
+        cart.add_product(product, 6)
+        cart.add_product(other_product, 12)
+
+        assert cart.get_total_price() == 1200
