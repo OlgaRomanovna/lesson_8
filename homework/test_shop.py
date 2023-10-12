@@ -104,7 +104,7 @@ class TestCart:
         cart.add_product(other_product, 12)
         assert cart.get_total_price() == 1200
 
-    def test_cart_buy_more_than_available(self, cart, product):
+    def test_cart_remove_more_than_added(self, cart, product):
         # Проверка на удаление большего количетсва товаров, чем лежит в корзине
         cart.add_product(product, 10)
         cart.remove_product(product, 11)
