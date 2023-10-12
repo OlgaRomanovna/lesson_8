@@ -80,3 +80,9 @@ class TestCart:
         assert cart.products.get(product) == 7
         cart.buy(quantity=5)
         assert cart.products.get(product) == 2
+
+    def test_buy_product_in_cart_ValueError(self, product, cart):
+        # Проверка на покупку большего quantity продуктов в корзине, вызывая VallueError
+        cart.add_product(product, buy_count=5)
+        with pytest.raises(ValueError):
+            cart.buy(quantity=6)
