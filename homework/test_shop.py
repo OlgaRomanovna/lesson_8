@@ -83,8 +83,9 @@ class TestCart:
         # Проверка на покупку quantity продуктов в корзине
         cart.add_product(product, buy_count=7)
         assert cart.products.get(product) == 7
-        cart.buy(quantity=5)
-        assert cart.products.get(product) == 2
+        cart.buy()
+        assert cart.products == {}
+        assert product.check_quantity(993)
 
     def test_buy_product_in_cart_ValueError(self, product, cart):
         # Проверка на покупку большего quantity продуктов в корзине, вызывая VallueError
